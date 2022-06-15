@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "KinematicBody2D",
+"class": "Ball",
+"language": "GDScript",
+"path": "res://Ball.gd"
+} ]
+_global_script_class_icons={
+"Ball": ""
+}
+
 [application]
 
 config/name="platzipong"

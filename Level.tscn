@@ -1,15 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Ball.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Oponente.gd" type="Script" id=3]
 [ext_resource path="res://Level.gd" type="Script" id=4]
+[ext_resource path="res://poetsen.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 960, 50 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 50, 540 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 5 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 4 )
@@ -45,8 +50,28 @@ position = Vector2( 50, 460 )
 position = Vector2( 1870, 460 )
 script = ExtResource( 3 )
 
+[node name="MarcadorPlayer" type="Label" parent="."]
+margin_left = -200.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+custom_colors/font_color = Color( 0.909804, 0.372549, 0.0470588, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "MarcadorPlayer"
+align = 1
+valign = 1
+
+[node name="MarcadorOponente" type="Label" parent="."]
+margin_left = 200.0
+margin_right = 1920.0
+margin_bottom = 1080.0
+custom_colors/font_color = Color( 0.909804, 0.372549, 0.0470588, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "MarcadorPlayer"
+align = 1
+valign = 1
+
 [node name="Ball" parent="." instance=ExtResource( 2 )]
-position = Vector2( 939, 519 )
+position = Vector2( 1075, 405 )
 
 [connection signal="body_entered" from="ArcoPlayer" to="." method="_on_ArcoPlayer_body_entered"]
 [connection signal="body_entered" from="ArcoOponente" to="." method="_on_ArcoOponente_body_entered"]
