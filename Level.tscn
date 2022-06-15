@@ -28,7 +28,7 @@ shape = SubResource( 1 )
 [node name="ParedInferior" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParedInferior"]
-position = Vector2( 960, 1030 )
+position = Vector2( 960, 1130 )
 shape = SubResource( 1 )
 
 [node name="ArcoPlayer" type="Area2D" parent="."]
@@ -73,5 +73,8 @@ valign = 1
 [node name="Ball" parent="." instance=ExtResource( 2 )]
 position = Vector2( 1075, 405 )
 
+[node name="RestartTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="ArcoPlayer" to="." method="_on_ArcoPlayer_body_entered"]
 [connection signal="body_entered" from="ArcoOponente" to="." method="_on_ArcoOponente_body_entered"]
+[connection signal="timeout" from="RestartTimer" to="Ball" method="_on_RestartTimer_timeout"]
